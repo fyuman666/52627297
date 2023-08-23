@@ -1,7 +1,7 @@
-import telegram
 from telegram.ext import Updater, CommandHandler
+import requests
 
-bot_token = '6696438979:AAFQ22gFgWMT-eoVda-a_EZBfE_zkOBCMB0'
+bot_token = '6696438979:AAFQ22gFgWMT-eoVda-a_EZBfE_zkOBCMB0' # Замените на ваш токен бота
 
 attack_interval = None
 is_attack_started = False
@@ -65,8 +65,7 @@ def send_req(context):
             print(response.text)
 
 def main():
-    bot = telegram.Bot(token=bot_token)
-    updater = Updater(bot=bot, use_context=True)
+    updater = Updater(token=bot_token)
     dispatcher = updater.dispatcher
 
     start_handler = CommandHandler('start', start_command)
@@ -81,4 +80,4 @@ def main():
     updater.idle()
 
 if __name__ == '__main__':
-    main()
+    main(
